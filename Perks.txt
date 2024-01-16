@@ -1,6 +1,9 @@
 PERK: Peculiar_Dragon_Egg
 Description: You start with a free Peculiar_"Dragon"_Egg in your hand End
 Ability: AtTheStartOfTheBattle Both AddCubeToHandOfThis FreeCopy CubeConstant Peculiar_Dragon_Egg RemoveThisAbility
+ObtainAction: SetCampaignVariable MaxHunger DoubleConstant 15
+ObtainAction: SetCampaignVariable MaxHungerAncient DoubleConstant 100
+Ability: AtTheStartOfTheBattle SetCampaignVariable BattleHunger DoubleConstant 0
 End
 
 PERK: Gotta_hatch_'em_all

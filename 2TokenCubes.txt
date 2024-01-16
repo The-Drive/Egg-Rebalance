@@ -83,7 +83,7 @@ Ability: RegenerationX 3
 Ability: GrowingUp 20 CubeConstant Magic_Dragon
 Ability: WorthXMore 20
 Ability: BeforeACubeTakesDamage If IsAllyToCaster Culprit If Not IsAllyToCaster Victim
-NegateX DoubleConstant 1
+NegateX DoubleConstant -1
 Text: Before an ally deals damage to a non ally that damage is increased by 1 End
 AiPlacementRule: And AiStacking AiBackline
 OVERRIDE
@@ -95,7 +95,7 @@ Ability: EveryXMeleeY 300 10
 Ability: GrowthX 1
 Ability: RegenerationX 6
 Ability: BeforeACubeTakesDamage If IsAllyToCaster Culprit If Not IsAllyToCaster Victim
-NegateX DoubleConstant 2
+NegateX DoubleConstant -2
 Text: Before an ally deals damage to a non ally that damage is increased by 2 End
 Ability: EveryXCreateCubeInfront TimeConstant 1300 CubeConstant Shock_Wave
 AiPlacementRule: And And AiStacking AiBackline AiEmptyInfront
@@ -433,7 +433,7 @@ End
 
 CUBE: Baby_Temporal_Dragon 5 2 2
 TOKEN
-Ability: GrowthX 2
+Ability: GrowthX 4
 Ability: EverySecond AccelerateX TimeConstant 60
 Text: Every second accelerate this for 1 second End
 Ability: GrowingUp 36 CubeConstant Temporal_Dragon
@@ -557,9 +557,13 @@ End
 CUBE: Ancient_Evil 100 100 100
 TOKEN
 Ability: RegenerationX 50
-Ability: Every30Seconds Both TargetCube ARandomEnemy TakeXDamage Division GetCampaignVariable HUNGER DoubleConstant 50 
+Ability: GrowthX 10
+Ability: EveryXSeconds DoubleConstant 20 Both TargetCube ARandomEnemy TakeXDamage Division GetCampaignVariable HUNGER DoubleConstant 50 
+If IsSmaller GetCampaignVariable BattleHunger Multiplication GetCampaignVariable MaxHunger DoubleConstant 5
+Both SetCampaignVariable BattleHunger Addition GetCampaignVariable BattleHunger Division GetCampaignVariable HUNGER DoubleConstant 50
 SetCampaignVariable HUNGER Addition GetCampaignVariable HUNGER Division GetCampaignVariable HUNGER DoubleConstant 50
-Text: Deals damage to a random enemy every 30 seconds scaling of your hunger stacks. Gain Stacks equal to the damage dealt End
+Text: Deals damage to a random enemy every 20 seconds scaling of your hunger stacks. Gain Stacks equal to the damage dealt, no more than 75 per battle \N
+Current Stacks: CVARIABLE HUNGER End
 End
 
 
@@ -568,14 +572,14 @@ TOKEN
 Ability: GrowingUp 9999 CubeConstant Ancient_Evil
 Ability: RegenerationX 5
 Ability: GrowthX 5
-Ability: EveryMinute Both TargetCube ARandomEnemy TakeXDamage DoubleConstant 1 SetCampaignVariable HungerCounter Addition GetCampaignVariable HungerCounter DoubleConstant 1
-Text: Does 1 Damage to a random enemy every minute End
-Ability: AfterThisDealsDamage If IsSmaller GetCampaignVariable HungerCounter DoubleConstant 10 SetCampaignVariable HUNGER Addition GetCampaignVariable HUNGER DoubleConstant 1
-Text: Gain a hunger stack each time this cube deals damage (they are permanent) End
-Ability: BeforeThisIsPlaced SetCampaignVariable HungerCounter DoubleConstant 0
-Text: Can't get more than 10 hunger stacks per battle per copy of this End
+Ability: EveryXSeconds DoubleConstant 30 Both TargetCube ARandomEnemy TakeXDamage DoubleConstant 1 SetCampaignVariable HungerCounter Addition GetCampaignVariable HungerCounter DoubleConstant 1
+Text: Does 1 Damage to a random enemy every 30 seconds End
+Ability: AfterThisDealsDamage If IsSmaller GetCampaignVariable BattleHunger GetCampaignVariable MaxHunger Both SetCampaignVariable HUNGER Addition GetCampaignVariable HUNGER DoubleConstant 1 SetCampaignVariable BattleHunger Addition GetCampaignVariable BattleHunger DoubleConstant 1
+Text: Gain a hunger stack each time this cube deals damage (they are permanent) \N
+Can't get more than 15 hunger stacks per battle End
 Ability: EverySecond If IsSmaller DoubleConstant 50 GetCampaignVariable HUNGER Both Exile CreateCubeOnPosition CubeConstant Ancient_Evil PositionOfThis
-Text: With enough stacks, something interesting might happen. End
+Text: With enough stacks, something interesting might happen. \N
+Current Stacks: CVARIABLE HUNGER End
 End
 
 CUBE: Peculiar_Dragon_Egg 10 2 2
