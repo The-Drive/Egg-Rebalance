@@ -99,6 +99,7 @@ NegateX DoubleConstant 2
 Text: Before an ally deals damage to a non ally that damage is increased by 2 End
 Ability: EveryXCreateCubeInfront TimeConstant 1300 CubeConstant Shock_Wave
 AiPlacementRule: And And AiStacking AiBackline AiEmptyInfront
+OVERRIDE
 End
 
 CUBE: Iron_Dragon_Egg 10 4 4
@@ -332,7 +333,7 @@ CUBE: Baby_Plant_Dragon 5 4 4
 TOKEN
 Ability: GrowthX 10
 Ability: RegenerationX 5
-Ability: GrowingUp 80 CubeConstant Plant_Dragon
+Ability: GrowingUp 60 CubeConstant Plant_Dragon
 Ability: WorthXMore 50
 AiPlacementRule: And AiStacking AiBackline
 Ability: AfterACubeDies If IsAllyToCaster Victim TargetCube ARandomCubeWhich IsAllyToCaster Test
@@ -352,6 +353,7 @@ Both ChangeMaxHp MaxHpOfCube Victim
 HealXDamage Division MaxHpOfCube Victim DoubleConstant 2
 Text: After an ally dies another random ally gains its entire max hp and is healed for half that amount End
 AiPlacementRule: And AiStacking AiBackline
+OVERRIDE
 End
 
 CUBE: Crystal_Dragon_Egg 10 3 3
@@ -498,11 +500,13 @@ CUBE: Baby_Devouring_Dragon 5 2 2
 TOKEN
 Ability: GrowthX 6
 Ability: DevouringX 1
+Ability: EveryXMeleeY 180 3
 Ability: GrowingUp 35 CubeConstant Devouring_Dragon
 Ability: WorthXMore 25
 Ability: EveryXSeconds DoubleConstant 10 EveryCubeWhich True GainAbility InfestedX 1
 Text: Every 10 seconds every cube gains 1 infested End
 AiPlacementRule: And AiStacking AiBackline
+OVERRIDE
 End
 
 CUBE: Devouring_Dragon 200 50 50
@@ -545,6 +549,7 @@ Ability: EveryXSeconds DoubleConstant 2 EveryCubeWhich And HasAbilityWithName Te
 If IsLarger GetStackingOfAbilityOnCube FrozenX Target ManaCostOfCube Target Die
 Text: Every 2 seconds all frozen enemies gain 1 frozen and if they have more frozen than manacost they die End
 AiPlacementRule: And AiStacking AiBackline
+OVERRIDE
 End
 
 
