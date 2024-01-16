@@ -1,0 +1,11 @@
+COMPOUND: ABILITY
+Egg_Dragon
+EveryXMinutes DoubleConstant 2 Both AddCubeToHandOfThis GenericCube Die
+Text: After 2 minutes this dies and a CODE 1 will be added to your hand End
+End
+
+COMPOUND: ABILITY
+AccelerateDragon
+EveryMinute TargetCube ARandomCubeWhich Or And HasAbilityWithName Test Egg_Dragon IsAllyToCaster Victim And HasAbilityWithName Test GrowingUp IsAllyToCaster Victim AccelerateX DoubleConstant 3600
+Text: Every Minute, accelerate a random dragon egg or baby dragon by one Minute. End
+End

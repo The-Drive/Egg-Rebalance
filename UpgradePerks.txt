@@ -1,0 +1,14 @@
+
+PERK: The_Devourer
+Ability: AtTheStartOfTheBattle Both AddCubeToHandOfThis FreeCopy CubeConstant Baby_Hungry_Dragon RemoveThisAbility
+Description: At the start of each battle add a Baby Hungry Dragon to your hand End
+IsUpgradeFrom: Peculiar_Dragon_Egg 70
+End
+
+PERK: The_Very_Best
+Ability: AccelerateDragon
+Ability: AccelerateDragon
+Ability: EveryMinute TargetCube ARandomCubeInLibraryWhich HasAbilityWithName Test Egg_Dragon AddCubeToHandOfFaction Target FactionOfThis
+Description: Every Minute, accelerate two random allied dragon eggs or baby dragons by a minute and add a random dragon egg to your hand End
+IsUpgradeFrom: Gotta_hatch_'em_all 100
+End

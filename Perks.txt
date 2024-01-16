@@ -1,0 +1,10 @@
+PERK: Peculiar_Dragon_Egg
+Description: You start with a free Peculiar_"Dragon"_Egg in your hand End
+Ability: AtTheStartOfTheBattle Both AddCubeToHandOfThis FreeCopy CubeConstant Peculiar_Dragon_Egg RemoveThisAbility
+End
+
+PERK: Gotta_hatch_'em_all
+Ability: AccelerateDragon
+Ability: EveryMinute TargetCube ARandomCubeInLibraryWhich HasAbilityWithName Test Egg_Dragon AddCubeToHandOfFaction Target FactionOfThis
+Description: Every Minute, accelerate a random allied dragon egg or baby dragon by a minute and add a random dragon egg to your hand End
+End
