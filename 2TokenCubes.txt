@@ -503,7 +503,7 @@ Ability: DevouringX 1
 Ability: EveryXMeleeY 180 3
 Ability: GrowingUp 35 CubeConstant Devouring_Dragon
 Ability: WorthXMore 25
-Ability: EveryXSeconds DoubleConstant 10 EveryCubeWhich True GainAbility InfestedX 1
+Ability: EveryXSeconds DoubleConstant 15 EveryCubeWhich True Silent GainAbility InfestedX 1
 Text: Every 10 seconds every cube gains 1 infested End
 AiPlacementRule: And AiStacking AiBackline
 OVERRIDE
@@ -514,7 +514,7 @@ TOKEN
 Ability: GrowthX 2
 Ability: DevouringX 10
 Ability: EveryXMeleeY 180 5
-Ability: EveryXSeconds DoubleConstant 5 EveryCubeWhich True GainAbility InfestedX 3
+Ability: EveryXSeconds DoubleConstant 5 EveryCubeWhich True Silent GainAbility InfestedX 3
 Text: Every 5 seconds every cube gains 2 infested End
 AiPlacementRule: And AiStacking AiBackline
 OVERRIDE
